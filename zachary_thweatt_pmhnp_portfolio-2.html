@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zachary Thweatt, RN | PMHNP Clinical Portfolio</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Merriweather (Academic Serif) & Inter (Clean Sans-Serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Clinical & Academic Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clinical: {
+                            navy: '#1E3A5F',
+                            navyDark: '#152A45',
+                            sage: '#2E7D6B',
+                            sageLight: '#E8F3F0',
+                            bgOff: '#F7F9FA',
+                            charcoal: '#1F2937',
+                            muted: '#4B5563',
+                            border: '#E5E7EB'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        serif: ['Merriweather', 'Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            color: #1F2937;
+            background-color: #FFFFFF;
+        }
+        
+        .nav-link-active {
+            color: #2E7D6B !important;
+            border-bottom: 2px solid #2E7D6B;
+            font-weight: 600;
+        }
+
+        .page-view {
+            animation: fadeIn 0.22s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F7F9FA;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94A3B8;
+        }
+
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #printable-cv-section, #printable-cv-section * {
+                visibility: visible;
+            }
+            #printable-cv-section {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                padding: 0;
+                margin: 0;
+                box-shadow: none !important;
+                border: none !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-clinical-sageLight selection:text-clinical-navy flex flex-col min-h-screen">
+
+    <!-- =====================================================================
+         STICKY GOOGLE SITES-STYLE TOP NAVIGATION BAR (EXACT REQUESTED TABS)
+    ====================================================================== -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-clinical-border shadow-sm no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 gap-4">
+                <!-- Left Brand Title -->
+                <button type="button" onclick="navigateToTab('home')" class="flex items-center space-x-2.5 group text-left shrink-0 cursor-pointer">
+                    <div class="w-8 h-8 rounded-lg bg-clinical-navy text-white flex items-center justify-center font-serif font-bold text-xs shadow-sm group-hover:bg-clinical-sage transition-colors">
+                        ZT
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-serif font-bold text-clinical-navy text-sm sm:text-base leading-tight tracking-tight">
+                            Zachary Thweatt, RN
+                        </span>
+                        <span class="text-[11px] font-medium text-clinical-sage tracking-wide uppercase">
+                            PMHNP Portfolio
+                        </span>
+                    </div>
+                </button>
+
+                <!-- Desktop Navigation Links (Exact Requested Labels) -->
+                <nav class="hidden xl:flex items-center space-x-4 text-[13px] font-medium text-clinical-muted" id="desktop-nav">
+                    <button type="button" onclick="navigateToTab('home')" class="py-5 hover:text-clinical-navy transition-colors nav-item nav-link-active whitespace-nowrap cursor-pointer" data-tab="home">
+                        Home
+                    </button>
+                    <button type="button" onclick="navigateToTab('philosophy')" class="py-5 hover:text-clinical-navy transition-colors nav-item whitespace-nowrap cursor-pointer" data-tab="philosophy">
+                        Professional Philosophy
+                    </button>
+                    <button type="button" onclick="navigateToTab('education')" class="py-5 hover:text-clinical-navy transition-colors nav-item whitespace-nowrap cursor-pointer" data-tab="education">
+                        Education
+                    </button>
+                    <button type="button" onclick="navigateToTab('experience')" class="py-5 hover:text-clinical-navy transition-colors nav-item whitespace-nowrap cursor-pointer" data-tab="experience">
+                        Professional Experience
+                    </button>
+                    <button type="button" onclick="navigateToTab('certifications')" class="py-5 hover:text-clinical-navy transition-colors nav-item whitespace-nowrap cursor-pointer" data-tab="certifications">
+                        Professional Organizations and Certifications
+                    </button>
+                    <button type="button" onclick="navigateToTab('honors')" class="py-5 hover:text-clinical-navy transition-colors nav-item whitespace-nowrap cursor-pointer" data-tab="honors">
+                        Honors and Awards
+                    </button>
+                    <button type="button" onclick="navigateToTab('service')" class="py-5 hover:text-clinical-navy transition-colors nav-item whitespace-nowrap cursor-pointer" data-tab="service">
+                        Service
+                    </button>
+                    <button type="button" onclick="navigateToTab('cv')" class="py-5 hover:text-clinical-navy transition-colors nav-item whitespace-nowrap cursor-pointer" data-tab="cv">
+                        Curriculum Vitae
+                    </button>
+
+                    <!-- More Dropdown Tab containing Self Evaluation -->
+                    <div class="relative" id="more-dropdown-wrapper">
+                        <button type="button" onclick="toggleMoreDropdown()" id="more-nav-btn" class="py-5 hover:text-clinical-navy transition-colors nav-item inline-flex items-center space-x-1 whitespace-nowrap cursor-pointer" data-tab="self-evaluation">
+                            <span>More</span>
+                            <i class="fa-solid fa-chevron-down text-[10px] transition-transform" id="more-chevron"></i>
+                        </button>
+                        <div id="more-dropdown-menu" class="hidden absolute right-0 mt-0 w-52 bg-white rounded-xl shadow-xl border border-clinical-border py-1.5 z-50">
+                            <button type="button" onclick="navigateToTab('self-evaluation'); closeMoreDropdown();" class="w-full text-left px-4 py-2.5 text-sm font-medium text-clinical-charcoal hover:bg-clinical-sageLight hover:text-clinical-navy flex items-center justify-between transition-colors cursor-pointer">
+                                <span>Self Evaluation</span>
+                                <i class="fa-solid fa-arrow-right text-xs text-clinical-sage"></i>
+                            </button>
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- Mobile / Tablet Menu Toggle -->
+                <div class="flex items-center xl:hidden">
+                    <button id="mobile-menu-btn" aria-label="Toggle Menu" class="p-2 rounded-lg text-clinical-navy hover:bg-clinical-bgOff focus:outline-none cursor-pointer">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile / Tablet Dropdown Navigation -->
+        <div id="mobile-menu" class="hidden xl:hidden bg-white border-b border-clinical-border px-4 pt-2 pb-4 space-y-1 shadow-lg max-h-[82vh] overflow-y-auto">
+            <button type="button" onclick="navigateToTab('home'); toggleMobileMenu();" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium text-clinical-charcoal hover:bg-clinical-bgOff mobile-nav-item" data-tab="home">
+                Home
+            </button>
+            <button type="button" onclick="navigateToTab('philosophy'); toggleMobileMenu();" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium text-clinical-charcoal hover:bg-clinical-bgOff mobile-nav-item" data-tab="philosophy">
+                Professional Philosophy
+            </button>
+            <button type="button" onclick="navigateToTab('education'); toggleMobileMenu();" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium text-clinical-charcoal hover:bg-clinical-bgOff mobile-nav-item" data-tab="education">
+                Education
+            </button>
+            <button type="button" onclick="navigateToTab('experience'); toggleMobileMenu();" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium text-clinical-charcoal hover:bg-clinical-bgOff mobile-nav-item" data-tab="experience">
+                Professional Experience
+            </button>
+            <button type="button" onclick="navigateToTab('certifications'); toggleMobileMenu();" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium text-clinical-charcoal hover:bg-clinical-bgOff mobile-nav-item" data-tab="certifications">
+                Professional Organizations and Certifications
+            </button>
+            <button type="button" onclick="navigateToTab('honors'); toggleMobileMenu();" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium text-clinical-charcoal hover:bg-clinical-bgOff mobile-nav-item" data-tab="honors">
+                Honors and Awards
+            </button>
+            <button type="button" onclick="navigateToTab('service'); toggleMobileMenu();" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium text-clinical-charcoal hover:bg-clinical-bgOff mobile-nav-item" data-tab="service">
+                Service
+            </button>
+            <button type="button" onclick="navigateToTab('cv'); toggleMobileMenu();" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium text-clinical-charcoal hover:bg-clinical-bgOff mobile-nav-item" data-tab="cv">
+                Curriculum Vitae
+            </button>
+            <div class="pt-1 mt-1 border-t border-clinical-border">
+                <div class="px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-clinical-muted">More</div>
+                <button type="button" onclick="navigateToTab('self-evaluation'); toggleMobileMenu();" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium text-clinical-sage hover:bg-clinical-sageLight mobile-nav-item" data-tab="self-evaluation">
+                    Self Evaluation
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- =====================================================================
+         MAIN PAGE CONTENT CONTAINER (GOOGLE SITES MULTI-TAB EXPERIENCE)
+    ====================================================================== -->
+    <main class="flex-grow">
+
+        <!-- =================================================================
+             TAB 1: HOME
+        ================================================================== -->
+        <div id="view-home" class="page-view">
+            <!-- Hero Banner -->
+            <section class="relative bg-gradient-to-b from-clinical-navy via-clinical-navy to-clinical-navyDark text-white pt-12 pb-20 sm:pt-16 sm:pb-24">
+                <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 24px 24px;"></div>
+
+                <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-8 space-y-5">
+                            <div class="inline-flex flex-wrap items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs sm:text-sm font-medium text-emerald-200">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                <span>Mississippi Registered Nurse (Compact License)</span>
+                                <span class="text-white/40">•</span>
+                                <span>UMMC MSN Candidate</span>
+                            </div>
+
+                            <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
+                                Zachary Thweatt, RN, BSN
+                            </h1>
+                            
+                            <p class="text-lg sm:text-xl font-medium text-slate-200 leading-relaxed">
+                                Psychiatric-Mental Health Nurse Practitioner (PMHNP) Student
+                            </p>
+
+                            <p class="text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed">
+                                Registered Nurse with more than 8 years of progressive experience in high-acuity ICU and vascular access nursing. Dedicated to evidence-based psychiatric assessment, interventional mental health care, and compassionate lifespan treatment planning.
+                            </p>
+
+                            <div class="flex flex-wrap gap-3 pt-1">
+                                <div class="flex items-center space-x-2 bg-white/10 backdrop-blur-xs px-3.5 py-2 rounded-lg border border-white/15 text-xs sm:text-sm">
+                                    <i class="fa-solid fa-graduation-cap text-emerald-300"></i>
+                                    <span><strong>MSN Graduation:</strong> May 2027 (UMMC)</span>
+                                </div>
+                                <div class="flex items-center space-x-2 bg-white/10 backdrop-blur-xs px-3.5 py-2 rounded-lg border border-white/15 text-xs sm:text-sm">
+                                    <i class="fa-solid fa-certificate text-emerald-300"></i>
+                                    <span><strong>PMHNP-BC Anticipated:</strong> June 2027 (ANCC)</span>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-wrap gap-3 pt-3">
+                                <button type="button" onclick="navigateToTab('experience')" class="inline-flex items-center px-5 py-3 rounded-lg bg-clinical-sage hover:bg-emerald-700 text-white font-semibold text-sm shadow-md transition-all cursor-pointer">
+                                    <i class="fa-solid fa-stethoscope mr-2"></i> Professional Experience
+                                </button>
+                                <button type="button" onclick="navigateToTab('cv')" class="inline-flex items-center px-5 py-3 rounded-lg bg-white text-clinical-navy hover:bg-slate-100 font-semibold text-sm shadow-md transition-all cursor-pointer">
+                                    <i class="fa-regular fa-file-lines mr-2 text-clinical-sage"></i> Curriculum Vitae
+                                </button>
+                                <button type="button" onclick="navigateToTab('philosophy')" class="inline-flex items-center px-5 py-3 rounded-lg bg-transparent hover:bg-white/10 text-white border border-white/30 font-medium text-sm transition-all cursor-pointer">
+                                    Professional Philosophy
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-4">
+                            <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-white shadow-xl">
+                                <div class="flex items-center space-x-4 pb-5 border-b border-white/15">
+                                    <div class="w-16 h-16 rounded-2xl bg-clinical-sage flex items-center justify-center text-white font-serif text-2xl font-bold shadow-inner shrink-0 border border-white/25">
+                                        ZT
+                                    </div>
+                                    <div>
+                                        <h2 class="font-serif font-bold text-lg text-white">Clinical Focus</h2>
+                                        <p class="text-xs text-emerald-200 font-medium mt-0.5">Lifespan Psychiatric Care</p>
+                                        <p class="text-xs text-slate-300 mt-1"><i class="fa-solid fa-location-dot mr-1 text-emerald-300"></i> Oxford &amp; Jackson, MS / Memphis, TN</p>
+                                    </div>
+                                </div>
+                                <ul class="space-y-3 pt-4 text-xs sm:text-sm text-slate-200">
+                                    <li class="flex items-start space-x-2.5">
+                                        <i class="fa-solid fa-check-circle text-emerald-400 mt-0.5"></i>
+                                        <span>Adolescent, Adult &amp; Geriatric Psychiatric Populations</span>
+                                    </li>
+                                    <li class="flex items-start space-x-2.5">
+                                        <i class="fa-solid fa-check-circle text-emerald-400 mt-0.5"></i>
+                                        <span>TMS Mapping &amp; Interventional Psychiatry Care</span>
+                                    </li>
+                                    <li class="flex items-start space-x-2.5">
+                                        <i class="fa-solid fa-check-circle text-emerald-400 mt-0.5"></i>
+                                        <span>8+ Years Critical Assessment &amp; Vascular Access</span>
+                                    </li>
+                                    <li class="flex items-start space-x-2.5">
+                                        <i class="fa-solid fa-check-circle text-emerald-400 mt-0.5"></i>
+                                        <span>2x Employee of the Quarter (2024 &amp; 2025)</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4-Card Key Metrics Bar -->
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-10">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-white rounded-xl p-5 border border-clinical-border shadow-md hover:shadow-lg transition-shadow flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-xl bg-clinical-navy/10 text-clinical-navy flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-heart-pulse text-xl"></i>
+                        </div>
+                        <div>
+                            <div class="font-serif text-2xl font-bold text-clinical-navy">8+ Years</div>
+                            <div class="text-xs font-semibold uppercase tracking-wider text-clinical-sage">RN Experience</div>
+                            <div class="text-xs text-clinical-muted mt-0.5">ICU &amp; Vascular Access</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-5 border border-clinical-border shadow-md hover:shadow-lg transition-shadow flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-xl bg-clinical-sageLight text-clinical-sage flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-brain text-xl"></i>
+                        </div>
+                        <div>
+                            <div class="font-serif text-2xl font-bold text-clinical-navy">360+ Hours</div>
+                            <div class="text-xs font-semibold uppercase tracking-wider text-clinical-sage">PMHNP Clinical Hours</div>
+                            <div class="text-xs text-clinical-muted mt-0.5">Right Track Medical Group</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-5 border border-clinical-border shadow-md hover:shadow-lg transition-shadow flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-xl bg-clinical-navy/10 text-clinical-navy flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-users text-xl"></i>
+                        </div>
+                        <div>
+                            <div class="font-serif text-2xl font-bold text-clinical-navy">3 Populations</div>
+                            <div class="text-xs font-semibold uppercase tracking-wider text-clinical-sage">Patient Populations</div>
+                            <div class="text-xs text-clinical-muted mt-0.5">Adolescent, Adult, Geriatric</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-5 border border-clinical-border shadow-md hover:shadow-lg transition-shadow flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-xl bg-clinical-sageLight text-clinical-sage flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-graduation-cap text-xl"></i>
+                        </div>
+                        <div>
+                            <div class="font-serif text-2xl font-bold text-clinical-navy">May 2027</div>
+                            <div class="text-xs font-semibold uppercase tracking-wider text-clinical-sage">PMHNP Graduation</div>
+                            <div class="text-xs text-clinical-muted mt-0.5">Univ. of Mississippi Medical Center</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Home Overview: Summary of Qualifications & Portfolio Directory -->
+            <section class="py-14 sm:py-16 bg-white">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                    <!-- Summary of Qualifications -->
+                    <div class="bg-clinical-bgOff border border-clinical-border rounded-2xl p-6 sm:p-8 shadow-xs">
+                        <div class="flex flex-col md:flex-row gap-6 items-start">
+                            <div class="w-12 h-12 rounded-xl bg-clinical-navy text-white flex items-center justify-center shrink-0 mt-1">
+                                <i class="fa-solid fa-user-nurse text-xl"></i>
+                            </div>
+                            <div class="space-y-3">
+                                <span class="text-xs font-bold uppercase tracking-widest text-clinical-sage">Welcome &amp; Overview</span>
+                                <h2 class="font-serif text-2xl font-bold text-clinical-navy">
+                                    Summary of Qualifications
+                                </h2>
+                                <p class="text-clinical-charcoal text-base leading-relaxed">
+                                    Registered Nurse with more than <strong>8 years of progressive experience in high-acuity ICU and vascular access nursing</strong>. Experienced in critical assessment, evidence-based care, interdisciplinary collaboration, patient education, and management of complex patients. Currently completing an MSN with a Psychiatric-Mental Health Nurse Practitioner focus, with anticipated graduation <strong>May 2027</strong> and <strong>PMHNP-BC</strong> certification anticipated <strong>June 2027</strong>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Portfolio Navigation Cards -->
+                    <div>
+                        <h3 class="font-serif text-xl font-bold text-clinical-navy mb-5">Explore Portfolio Sections</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <button type="button" onclick="navigateToTab('philosophy')" class="text-left p-5 rounded-xl bg-white border border-clinical-border hover:border-clinical-sage hover:shadow-md transition-all cursor-pointer group">
+                                <div class="w-9 h-9 rounded-lg bg-clinical-sageLight text-clinical-sage flex items-center justify-center mb-3 group-hover:bg-clinical-sage group-hover:text-white transition-colors">
+                                    <i class="fa-solid fa-compass"></i>
+                                </div>
+                                <h4 class="font-serif font-bold text-clinical-navy text-base">Professional Philosophy</h4>
+                                <p class="text-xs text-clinical-muted mt-1">Approach to holistic, trauma-informed psychiatric care.</p>
+                            </button>
+
+                            <button type="button" onclick="navigateToTab('education')" class="text-left p-5 rounded-xl bg-white border border-clinical-border hover:border-clinical-sage hover:shadow-md transition-all cursor-pointer group">
+                                <div class="w-9 h-9 rounded-lg bg-clinical-navy/10 text-clinical-navy flex items-center justify-center mb-3 group-hover:bg-clinical-navy group-hover:text-white transition-colors">
+                                    <i class="fa-solid fa-graduation-cap"></i>
+                                </div>
+                                <h4 class="font-serif font-bold text-clinical-navy text-base">Education</h4>
+                                <p class="text-xs text-clinical-muted mt-1">UMMC MSN (2027) &amp; Mississippi College BSN (2018).</p>
+                            </button>
+
+                            <button type="button" onclick="navigateToTab('experience')" class="text-left p-5 rounded-xl bg-white border border-clinical-border hover:border-clinical-sage hover:shadow-md transition-all cursor-pointer group">
+                                <div class="w-9 h-9 rounded-lg bg-clinical-sageLight text-clinical-sage flex items-center justify-center mb-3 group-hover:bg-clinical-sage group-hover:text-white transition-colors">
+                                    <i class="fa-solid fa-briefcase-medical"></i>
+                                </div>
+                                <h4 class="font-serif font-bold text-clinical-navy text-base">Professional Experience</h4>
+                                <p class="text-xs text-clinical-muted mt-1">PMHNP rotations, Vascular Access &amp; ICU nursing.</p>
+                            </button>
+
+                            <button type="button" onclick="navigateToTab('self-evaluation')" class="text-left p-5 rounded-xl bg-white border border-clinical-border hover:border-clinical-sage hover:shadow-md transition-all cursor-pointer group">
+                                <div class="w-9 h-9 rounded-lg bg-clinical-navy/10 text-clinical-navy flex items-center justify-center mb-3 group-hover:bg-clinical-navy group-hover:text-white transition-colors">
+                                    <i class="fa-solid fa-chart-line"></i>
+                                </div>
+                                <h4 class="font-serif font-bold text-clinical-navy text-base">Self Evaluation</h4>
+                                <p class="text-xs text-clinical-muted mt-1">Clinical growth &amp; reflection via the More tab.</p>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Contact & Inquiry Banner -->
+                    <div class="bg-clinical-navy rounded-2xl p-6 sm:p-8 text-white shadow-md flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                        <div class="space-y-1.5">
+                            <h3 class="font-serif text-xl sm:text-2xl font-bold">Contact &amp; References</h3>
+                            <p class="text-sm text-slate-200">
+                                Languages: English • References available on request • Available for PMHNP opportunities &amp; clinical collaborations.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-3 shrink-0">
+                            <button type="button" onclick="openReferenceModal()" class="px-5 py-2.5 rounded-xl bg-clinical-sage hover:bg-emerald-700 text-white font-semibold text-sm transition-colors cursor-pointer">
+                                <i class="fa-regular fa-envelope mr-1.5"></i> Request References
+                            </button>
+                            <button type="button" onclick="navigateToTab('cv')" class="px-5 py-2.5 rounded-xl bg-white text-clinical-navy hover:bg-slate-100 font-semibold text-sm transition-colors cursor-pointer">
+                                View Full CV
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- =================================================================
+             TAB 2: PROFESSIONAL PHILOSOPHY
+        ================================================================== -->
+        <div id="view-philosophy" class="page-view hidden">
+            <section class="bg-clinical-navy text-white py-12 sm:py-16">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <span class="text-xs font-bold uppercase tracking-widest text-emerald-300">PMHNP Guiding Principles</span>
+                    <h1 class="font-serif text-3xl sm:text-4xl font-bold mt-2">Professional Philosophy</h1>
+                    <p class="text-slate-200 text-sm sm:text-base max-w-2xl mt-3 leading-relaxed">
+                        Combining more than eight years of critical care experience with compassionate, evidence-based psychiatric-mental health practice.
+                    </p>
+                </div>
+            </section>
+
+            <section class="py-12 sm:py-16 bg-white">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+                    <!-- Main Philosophy Statement -->
+                    <div class="bg-clinical-bgOff border border-clinical-border rounded-2xl p-6 sm:p-10 shadow-xs space-y-5">
+                        <div class="flex items-center space-x-3 text-clinical-sage">
+                            <i class="fa-solid fa-quote-left text-2xl"></i>
+                            <span class="text-xs font-bold uppercase tracking-widest">Philosophy of Psychiatric-Mental Health Care</span>
+                        </div>
+                        <p class="text-clinical-charcoal text-base sm:text-lg leading-relaxed">
+                            My nursing philosophy is based on the belief that mental health and physical health are closely connected. After more than eight years of caring for critically ill patients in the Intensive Care Unit and working as a Vascular Access Consultant, I have seen how medical stress, complex diagnoses, and major life events can affect a person’s mental well-being.
+                        </p>
+                        <p class="text-clinical-charcoal text-base sm:text-lg leading-relaxed">
+                            As a Psychiatric-Mental Health Nurse Practitioner student, I aim to provide complete, trauma-informed, and evidence-based care that respects each person’s dignity and life experiences. Whether I am completing psychiatric evaluations for adolescents, adults, or older adults, working on medication plans, or supporting treatments such as Transcranial Magnetic Stimulation (TMS), my goal is to help patients and families through clear teaching, strong therapeutic relationships, and care plans that fit their individual needs.
+                        </p>
+                    </div>
+
+                    <!-- Four Core Pillars -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white border border-clinical-border rounded-2xl p-6 shadow-xs">
+                            <div class="w-11 h-11 rounded-xl bg-clinical-navy/10 text-clinical-navy flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-microscope text-lg"></i>
+                            </div>
+                            <h3 class="font-serif font-bold text-lg text-clinical-navy mb-2">Thorough Clinical Assessment</h3>
+                            <p class="text-sm text-clinical-muted leading-relaxed">
+                                Using the careful assessment skills I developed in critical care to check for medical causes of symptoms and safely manage patients who have both medical and psychiatric needs.
+                            </p>
+                        </div>
+
+                        <div class="bg-white border border-clinical-border rounded-2xl p-6 shadow-xs">
+                            <div class="w-11 h-11 rounded-xl bg-clinical-sageLight text-clinical-sage flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-brain text-lg"></i>
+                            </div>
+                            <h3 class="font-serif font-bold text-lg text-clinical-navy mb-2">Evidence-Based Care &amp; TMS</h3>
+                            <p class="text-sm text-clinical-muted leading-relaxed">
+                                Combining proven medications and therapies with treatments like TMS mapping to support people with mood disorders that have not responded well to other approaches.
+                            </p>
+                        </div>
+
+                        <div class="bg-white border border-clinical-border rounded-2xl p-6 shadow-xs">
+                            <div class="w-11 h-11 rounded-xl bg-clinical-sageLight text-clinical-sage flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-hand-holding-heart text-lg"></i>
+                            </div>
+                            <h3 class="font-serif font-bold text-lg text-clinical-navy mb-2">Patient Education &amp; Shared Decisions</h3>
+                            <p class="text-sm text-clinical-muted leading-relaxed">
+                                Explaining clinical information in clear, everyday language so patients and their families feel informed, respected, and involved in every part of their care plan.
+                            </p>
+                        </div>
+
+                        <div class="bg-white border border-clinical-border rounded-2xl p-6 shadow-xs">
+                            <div class="w-11 h-11 rounded-xl bg-clinical-navy/10 text-clinical-navy flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-people-arrows text-lg"></i>
+                            </div>
+                            <h3 class="font-serif font-bold text-lg text-clinical-navy mb-2">Team Collaboration</h3>
+                            <p class="text-sm text-clinical-muted leading-relaxed">
+                                Working closely with psychiatrists, primary care providers, therapists, nurses, and community resources to keep care connected across outpatient and inpatient settings.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- =================================================================
+             TAB 3: EDUCATION
+        ================================================================== -->
+        <div id="view-education" class="page-view hidden">
+            <section class="bg-clinical-navy text-white py-12 sm:py-16">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <span class="text-xs font-bold uppercase tracking-widest text-emerald-300">Academic Background</span>
+                    <h1 class="font-serif text-3xl sm:text-4xl font-bold mt-2">Education</h1>
+                    <p class="text-slate-200 text-sm sm:text-base max-w-2xl mt-3 leading-relaxed">
+                        Graduate and undergraduate nursing education preparing for board-certified advanced practice in psychiatric-mental health.
+                    </p>
+                </div>
+            </section>
+
+            <section class="py-12 sm:py-16 bg-white">
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+                    <!-- MSN -->
+                    <div class="bg-clinical-bgOff rounded-2xl p-6 sm:p-8 border border-clinical-border shadow-xs relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-2 h-full bg-clinical-sage"></div>
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-clinical-border">
+                            <div>
+                                <span class="px-3 py-1 rounded-full text-xs font-bold bg-clinical-sage text-white">
+                                    Anticipated May 2027
+                                </span>
+                                <h2 class="font-serif text-2xl font-bold text-clinical-navy mt-3">
+                                    Master of Science in Nursing (MSN)
+                                </h2>
+                                <p class="text-base font-semibold text-clinical-sage mt-1">
+                                    Psychiatric-Mental Health Nurse Practitioner (PMHNP) Focus
+                                </p>
+                            </div>
+                            <div class="text-left sm:text-right">
+                                <p class="font-bold text-clinical-navy text-base">University of Mississippi Medical Center</p>
+                                <p class="text-sm text-clinical-muted"><i class="fa-solid fa-location-dot mr-1 text-clinical-sage"></i> Jackson, MS</p>
+                            </div>
+                        </div>
+                        <div class="pt-4 text-sm text-clinical-charcoal space-y-2">
+                            <p>• Advanced coursework in psychopharmacology, advanced health assessment, neurobiology, differential diagnosis, and lifespan psychotherapy.</p>
+                            <p>• Completing 360+ clinical practicum hours in outpatient psychiatry and neuromodulation (TMS mapping), with PMHNP-BC certification anticipated June 2027.</p>
+                        </div>
+                    </div>
+
+                    <!-- BSN -->
+                    <div class="bg-clinical-bgOff rounded-2xl p-6 sm:p-8 border border-clinical-border shadow-xs relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-2 h-full bg-clinical-navy"></div>
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-clinical-border">
+                            <div>
+                                <span class="px-3 py-1 rounded-full text-xs font-bold bg-clinical-navy text-white">
+                                    May 2018
+                                </span>
+                                <h2 class="font-serif text-2xl font-bold text-clinical-navy mt-3">
+                                    Bachelor of Science in Nursing (BSN)
+                                </h2>
+                                <p class="text-base font-semibold text-clinical-sage mt-1">
+                                    Undergraduate Nursing Degree
+                                </p>
+                            </div>
+                            <div class="text-left sm:text-right">
+                                <p class="font-bold text-clinical-navy text-base">Mississippi College</p>
+                                <p class="text-sm text-clinical-muted"><i class="fa-solid fa-location-dot mr-1 text-clinical-sage"></i> Clinton, MS</p>
+                            </div>
+                        </div>
+                        <div class="pt-4 text-sm text-clinical-charcoal">
+                            <p>• Built a strong foundation in evidence-based nursing practice, pathophysiological assessment, patient safety, and compassionate clinical leadership.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- =================================================================
+             TAB 4: PROFESSIONAL EXPERIENCE (CLINICAL ROTATIONS + WORK HISTORY)
+        ================================================================== -->
+        <div id="view-experience" class="page-view hidden">
+            <section class="bg-clinical-navy text-white py-12 sm:py-16">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <span class="text-xs font-bold uppercase tracking-widest text-emerald-300">Clinical Rotations &amp; 8+ Years RN Practice</span>
+                    <h1 class="font-serif text-3xl sm:text-4xl font-bold mt-2">Professional Experience</h1>
+                    <p class="text-slate-200 text-sm sm:text-base max-w-2xl mt-3 leading-relaxed">
+                        Graduate nurse practitioner clinical rotations alongside progressive nursing roles in vascular access consultation and high-acuity intensive care.
+                    </p>
+                </div>
+            </section>
+
+            <section class="py-12 sm:py-16 bg-clinical-bgOff">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+                    
+                    <!-- PART A: CLINICAL ROTATIONS -->
+                    <div>
+                        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-widest text-clinical-sage">Graduate Practicum</span>
+                                <h2 class="font-serif text-2xl sm:text-3xl font-bold text-clinical-navy mt-1">
+                                    Clinical Rotations
+                                </h2>
+                                <div class="w-16 h-1 bg-clinical-sage rounded-full mt-2"></div>
+                            </div>
+
+                            <div class="inline-flex rounded-xl bg-white p-1 border border-clinical-border shadow-xs self-start" role="tablist">
+                                <button type="button" onclick="filterRotations('all')" id="tab-all" class="rotation-tab px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold bg-clinical-navy text-white transition-all cursor-pointer">
+                                    All Rotations (2)
+                                </button>
+                                <button type="button" onclick="filterRotations('pmhnp')" id="tab-pmhnp" class="rotation-tab px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold text-clinical-muted hover:text-clinical-navy transition-all cursor-pointer">
+                                    PMHNP Psychiatry
+                                </button>
+                                <button type="button" onclick="filterRotations('medicine')" id="tab-medicine" class="rotation-tab px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold text-clinical-muted hover:text-clinical-navy transition-all cursor-pointer">
+                                    Internal Medicine
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="space-y-8" id="rotations-container">
+                            <!-- PMHNP Rotation -->
+                            <article data-category="pmhnp" class="rotation-card bg-white rounded-2xl border border-clinical-border shadow-sm overflow-hidden">
+                                <div class="bg-clinical-navy px-6 py-4 text-white flex flex-wrap items-center justify-between gap-3">
+                                    <div class="flex items-center space-x-3">
+                                        <span class="px-3 py-1 rounded-full bg-clinical-sage text-white text-xs font-bold uppercase tracking-wider">
+                                            PMHNP Nurse Practitioner Clinical Rotation
+                                        </span>
+                                        <span class="text-sm font-medium text-emerald-200">
+                                            <i class="fa-regular fa-clock mr-1"></i> Summer &amp; Fall 2026 • 360 Hours
+                                        </span>
+                                    </div>
+                                    <span class="text-xs font-semibold bg-white/10 px-3 py-1 rounded-lg border border-white/15">
+                                        Adolescent • Adult • Geriatric
+                                    </span>
+                                </div>
+
+                                <div class="p-6 sm:p-8">
+                                    <div class="pb-5 border-b border-clinical-border">
+                                        <h3 class="font-serif text-xl sm:text-2xl font-bold text-clinical-navy">
+                                            PMHNP Nurse Practitioner Clinical Rotation
+                                        </h3>
+                                        <p class="text-base font-semibold text-clinical-sage mt-1">
+                                            <i class="fa-solid fa-hospital-user mr-1.5"></i> Right Track Medical Group
+                                        </p>
+                                    </div>
+
+                                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 pt-6">
+                                        <div class="lg:col-span-7 space-y-4">
+                                            <h4 class="text-xs font-bold uppercase tracking-wider text-clinical-navy">
+                                                Clinical Scope &amp; Responsibilities
+                                            </h4>
+                                            <ul class="space-y-3 text-sm sm:text-base text-clinical-charcoal">
+                                                <li class="flex items-start space-x-3">
+                                                    <span class="w-5 h-5 rounded-full bg-clinical-sageLight text-clinical-sage flex items-center justify-center text-xs shrink-0 mt-0.5">
+                                                        <i class="fa-solid fa-check"></i>
+                                                    </span>
+                                                    <span>Provided psychiatric assessment and care across adolescent, adult, and geriatric populations.</span>
+                                                </li>
+                                                <li class="flex items-start space-x-3">
+                                                    <span class="w-5 h-5 rounded-full bg-clinical-sageLight text-clinical-sage flex items-center justify-center text-xs shrink-0 mt-0.5">
+                                                        <i class="fa-solid fa-check"></i>
+                                                    </span>
+                                                    <span>Clinical exposure included ADHD, major depressive disorder, generalized anxiety disorder, schizoaffective disorder, schizophrenia, OCD, and DMDD.</span>
+                                                </li>
+                                                <li class="flex items-start space-x-3">
+                                                    <span class="w-5 h-5 rounded-full bg-clinical-sageLight text-clinical-sage flex items-center justify-center text-xs shrink-0 mt-0.5">
+                                                        <i class="fa-solid fa-check"></i>
+                                                    </span>
+                                                    <span>Participated in TMS mapping and psychiatric treatment planning.</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="lg:col-span-5 bg-clinical-bgOff rounded-xl p-5 border border-clinical-border">
+                                            <div class="flex items-center justify-between mb-3">
+                                                <h4 class="text-xs font-bold uppercase tracking-wider text-clinical-navy">
+                                                    Conditions &amp; Modalities
+                                                </h4>
+                                                <span class="text-[11px] text-clinical-muted">Select tag for focus</span>
+                                            </div>
+                                            <div class="flex flex-wrap gap-2">
+                                                <button type="button" onclick="showConditionNote('ADHD', 'Comprehensive lifespan evaluation, executive function assessment, and evidence-based pharmacologic management.')" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white text-clinical-navy border border-clinical-border hover:border-clinical-sage hover:bg-clinical-sageLight transition-all cursor-pointer">ADHD</button>
+                                                <button type="button" onclick="showConditionNote('Major Depressive Disorder', 'Symptom severity tracking, antidepressant titration, and TMS candidacy evaluation.')" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white text-clinical-navy border border-clinical-border hover:border-clinical-sage hover:bg-clinical-sageLight transition-all cursor-pointer">Major Depressive Disorder</button>
+                                                <button type="button" onclick="showConditionNote('Generalized Anxiety Disorder', 'Anxiety symptom evaluation, pharmacotherapy management, and coping skill reinforcement.')" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white text-clinical-navy border border-clinical-border hover:border-clinical-sage hover:bg-clinical-sageLight transition-all cursor-pointer">Generalized Anxiety Disorder</button>
+                                                <button type="button" onclick="showConditionNote('Schizoaffective Disorder', 'Longitudinal symptom monitoring, antipsychotic efficacy assessment, and stabilizing care planning.')" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white text-clinical-navy border border-clinical-border hover:border-clinical-sage hover:bg-clinical-sageLight transition-all cursor-pointer">Schizoaffective Disorder</button>
+                                                <button type="button" onclick="showConditionNote('Schizophrenia', 'Multidisciplinary stabilization, symptom assessment, and medication adherence support.')" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white text-clinical-navy border border-clinical-border hover:border-clinical-sage hover:bg-clinical-sageLight transition-all cursor-pointer">Schizophrenia</button>
+                                                <button type="button" onclick="showConditionNote('OCD', 'Obsession and compulsion tracking, targeted serotonergic dosing, and therapeutic guidance.')" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white text-clinical-navy border border-clinical-border hover:border-clinical-sage hover:bg-clinical-sageLight transition-all cursor-pointer">OCD</button>
+                                                <button type="button" onclick="showConditionNote('DMDD', 'Pediatric mood stabilization assessment and family-centered behavioral care planning.')" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white text-clinical-navy border border-clinical-border hover:border-clinical-sage hover:bg-clinical-sageLight transition-all cursor-pointer">DMDD</button>
+                                                <button type="button" onclick="showConditionNote('TMS Mapping', 'Transcranial Magnetic Stimulation motor threshold mapping and targeted neuromodulation protocol planning.')" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-clinical-sage text-white border border-clinical-sage hover:bg-emerald-700 transition-all cursor-pointer"><i class="fa-solid fa-wave-square mr-1"></i> TMS Mapping</button>
+                                            </div>
+                                            <div class="mt-4 p-3.5 rounded-lg bg-white border border-clinical-sage/30 text-xs text-clinical-charcoal shadow-2xs">
+                                                <div class="font-bold text-clinical-sage mb-1" id="condition-note-title">
+                                                    <i class="fa-solid fa-circle-info mr-1"></i> Clinical Focus: Lifespan Psychiatry &amp; TMS
+                                                </div>
+                                                <p id="condition-note-desc" class="text-clinical-muted leading-relaxed">
+                                                    Provided psychiatric assessment and care across adolescent, adult, and geriatric populations at Right Track Medical Group.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Internal Medicine Rotation -->
+                            <article data-category="medicine" class="rotation-card bg-white rounded-2xl border border-clinical-border shadow-sm overflow-hidden">
+                                <div class="bg-slate-700 px-6 py-4 text-white flex flex-wrap items-center justify-between gap-3">
+                                    <span class="px-3 py-1 rounded-full bg-white/15 text-white text-xs font-bold uppercase tracking-wider">
+                                        Medical Clinical Rotation
+                                    </span>
+                                    <span class="text-sm font-medium text-slate-200">
+                                        <i class="fa-solid fa-location-dot mr-1"></i> Oxford, MS
+                                    </span>
+                                </div>
+
+                                <div class="p-6 sm:p-8">
+                                    <div class="pb-5 border-b border-clinical-border">
+                                        <h3 class="font-serif text-xl sm:text-2xl font-bold text-clinical-navy">
+                                            Internal Medicine Associates of Oxford
+                                        </h3>
+                                        <p class="text-sm font-semibold text-clinical-sage mt-1">Oxford, MS</p>
+                                    </div>
+
+                                    <div class="pt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                                        <div class="p-4 rounded-xl bg-clinical-bgOff border border-clinical-border font-semibold text-sm text-clinical-navy">
+                                            <i class="fa-solid fa-hospital text-clinical-sage mr-2"></i> Post-Hospital Follow-Ups
+                                        </div>
+                                        <div class="p-4 rounded-xl bg-clinical-bgOff border border-clinical-border font-semibold text-sm text-clinical-navy">
+                                            <i class="fa-solid fa-truck-medical text-clinical-sage mr-2"></i> Same-Day Urgent Visits
+                                        </div>
+                                        <div class="p-4 rounded-xl bg-clinical-bgOff border border-clinical-border font-semibold text-sm text-clinical-navy">
+                                            <i class="fa-solid fa-heart-circle-exclamation text-clinical-sage mr-2"></i> Complex Disease Flare-Ups
+                                        </div>
+                                        <div class="p-4 rounded-xl bg-clinical-bgOff border border-clinical-border font-semibold text-sm text-clinical-navy">
+                                            <i class="fa-solid fa-vial-circle-check text-clinical-sage mr-2"></i> Diagnostics &amp; Medication Adjustments
+                                        </div>
+                                        <div class="p-4 rounded-xl bg-clinical-bgOff border border-clinical-border font-semibold text-sm text-clinical-navy sm:col-span-2">
+                                            <i class="fa-solid fa-clipboard-user text-clinical-sage mr-2"></i> Inpatient Hospital Rounding
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <!-- PART B: WORK HISTORY -->
+                    <div>
+                        <div class="mb-8">
+                            <span class="text-xs font-bold uppercase tracking-widest text-clinical-sage">Nursing Career</span>
+                            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-clinical-navy mt-1">
+                                Work History
+                            </h2>
+                            <div class="w-16 h-1 bg-clinical-sage rounded-full mt-2"></div>
+                        </div>
+
+                        <div class="relative border-l-2 border-clinical-sage/40 ml-3 sm:ml-6 space-y-8">
+                            <!-- Vascular Access Consultant -->
+                            <div class="relative pl-8 sm:pl-10">
+                                <div class="absolute -left-[11px] top-1 w-5 h-5 rounded-full bg-clinical-sage border-4 border-white shadow-sm"></div>
+                                <div class="bg-white border border-clinical-border rounded-2xl p-6 sm:p-8 shadow-xs">
+                                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-clinical-border">
+                                        <div>
+                                            <h3 class="font-serif text-xl font-bold text-clinical-navy">Vascular Access Consultant</h3>
+                                            <p class="text-sm sm:text-base font-semibold text-clinical-sage mt-1">VIC the PICC — Memphis, TN</p>
+                                        </div>
+                                        <span class="inline-flex items-center px-3.5 py-1.5 rounded-lg bg-clinical-bgOff border border-clinical-border text-xs font-bold text-clinical-navy self-start sm:self-center">
+                                            <i class="fa-regular fa-calendar mr-1.5 text-clinical-sage"></i> May 2020 – Present
+                                        </span>
+                                    </div>
+                                    <ul class="space-y-3 pt-5 text-sm sm:text-base text-clinical-charcoal">
+                                        <li class="flex items-start space-x-3">
+                                            <i class="fa-solid fa-angle-right text-clinical-sage mt-1"></i>
+                                            <span>Perform PICC and midline insertion and management with comprehensive vascular access assessment.</span>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="fa-solid fa-angle-right text-clinical-sage mt-1"></i>
+                                            <span>Perform ultrasound-guided insertions while maintaining sterile technique and infection-prevention standards.</span>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="fa-solid fa-angle-right text-clinical-sage mt-1"></i>
+                                            <span>Monitor for thrombosis, infection, occlusion, and malposition; collaborate with interdisciplinary teams on vascular access plans.</span>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="fa-solid fa-angle-right text-clinical-sage mt-1"></i>
+                                            <span>Provide patient education regarding vascular access devices and ongoing care.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- ICU Registered Nurse -->
+                            <div class="relative pl-8 sm:pl-10">
+                                <div class="absolute -left-[11px] top-1 w-5 h-5 rounded-full bg-clinical-navy border-4 border-white shadow-sm"></div>
+                                <div class="bg-white border border-clinical-border rounded-2xl p-6 sm:p-8 shadow-xs">
+                                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-clinical-border">
+                                        <div>
+                                            <h3 class="font-serif text-xl font-bold text-clinical-navy">ICU Registered Nurse</h3>
+                                            <p class="text-sm sm:text-base font-semibold text-clinical-sage mt-1">Baptist Memorial Hospital — Oxford, MS</p>
+                                        </div>
+                                        <span class="inline-flex items-center px-3.5 py-1.5 rounded-lg bg-clinical-bgOff border border-clinical-border text-xs font-bold text-clinical-navy self-start sm:self-center">
+                                            <i class="fa-regular fa-calendar mr-1.5 text-clinical-sage"></i> May 2018 – May 2020
+                                        </span>
+                                    </div>
+                                    <ul class="space-y-3 pt-5 text-sm sm:text-base text-clinical-charcoal">
+                                        <li class="flex items-start space-x-3">
+                                            <i class="fa-solid fa-angle-right text-clinical-sage mt-1"></i>
+                                            <span>Delivered care to high-acuity medical and surgical patients, including post-cardiovascular surgery and neurological interventions.</span>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="fa-solid fa-angle-right text-clinical-sage mt-1"></i>
+                                            <span>Performed hemodynamic, cardiac, respiratory, and neurological assessments and administered critical-care medications.</span>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <i class="fa-solid fa-angle-right text-clinical-sage mt-1"></i>
+                                            <span>Responded to rapidly changing patient conditions and participated in rapid-response situations.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+        <!-- =================================================================
+             TAB 5: PROFESSIONAL ORGANIZATIONS AND CERTIFICATIONS
+        ================================================================== -->
+        <div id="view-certifications" class="page-view hidden">
+            <section class="bg-clinical-navy text-white py-12 sm:py-16">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <span class="text-xs font-bold uppercase tracking-widest text-emerald-300">Licensure, Board Certification &amp; Affiliations</span>
+                    <h1 class="font-serif text-3xl sm:text-4xl font-bold mt-2">Professional Organizations and Certifications</h1>
+                    <p class="text-slate-200 text-sm sm:text-base max-w-2xl mt-3 leading-relaxed">
+                        Active nursing licensure, life-support credentials, specialty certifications, and national nursing organizations.
+                    </p>
+                </div>
+            </section>
+
+            <section class="py-12 sm:py-16 bg-white">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                    
+                    <!-- Certifications & Licensure Table/Cards -->
+                    <div>
+                        <h2 class="font-serif text-2xl font-bold text-clinical-navy mb-6 flex items-center">
+                            <i class="fa-solid fa-certificate text-clinical-sage mr-3"></i>
+                            Certifications &amp; Licensure
+                        </h2>
+
+                        <div class="bg-white rounded-2xl border border-clinical-border shadow-xs divide-y divide-clinical-border overflow-hidden">
+                            <div class="p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-amber-50/40">
+                                <div>
+                                    <h3 class="font-bold text-base text-clinical-navy">Psychiatric-Mental Health Nurse Practitioner-Board Certified (PMHNP-BC)</h3>
+                                    <p class="text-sm text-clinical-muted mt-0.5">American Nurses Credentialing Center (ANCC)</p>
+                                </div>
+                                <span class="self-start sm:self-center px-3.5 py-1.5 rounded-lg text-xs font-bold bg-amber-100 text-amber-900 border border-amber-200">
+                                    June 2027 Anticipated
+                                </span>
+                            </div>
+
+                            <div class="p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-clinical-bgOff/60 transition-colors">
+                                <div>
+                                    <h3 class="font-bold text-base text-clinical-navy">Registered Nurse Compact License</h3>
+                                    <p class="text-sm text-clinical-muted mt-0.5">Mississippi Board of Nursing</p>
+                                </div>
+                                <span class="self-start sm:self-center px-3.5 py-1.5 rounded-lg text-xs font-bold bg-clinical-sageLight text-clinical-sage">
+                                    June 2018 – Present
+                                </span>
+                            </div>
+
+                            <div class="p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-clinical-bgOff/60 transition-colors">
+                                <div>
+                                    <h3 class="font-bold text-base text-clinical-navy">Basic Life Support (BLS)</h3>
+                                    <p class="text-sm text-clinical-muted mt-0.5">American Heart Association (AHA)</p>
+                                </div>
+                                <span class="self-start sm:self-center px-3.5 py-1.5 rounded-lg text-xs font-bold bg-clinical-sageLight text-clinical-sage">
+                                    June 2018 – Present
+                                </span>
+                            </div>
+
+                            <div class="p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-clinical-bgOff/60 transition-colors">
+                                <div>
+                                    <h3 class="font-bold text-base text-clinical-navy">Advanced Cardiovascular Life Support (ACLS)</h3>
+                                    <p class="text-sm text-clinical-muted mt-0.5">American Heart Association (AHA)</p>
+                                </div>
+                                <span class="self-start sm:self-center px-3.5 py-1.5 rounded-lg text-xs font-bold bg-clinical-sageLight text-clinical-sage">
+                                    June 2018 – Present
+                                </span>
+                            </div>
+
+                            <div class="p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-clinical-bgOff/60 transition-colors">
+                                <div>
+                                    <h3 class="font-bold text-base text-clinical-navy">Critical Care Registered Nurse (CCRN)</h3>
+                                    <p class="text-sm text-clinical-muted mt-0.5">American Association of Critical-Care Nurses (AACN)</p>
+                                </div>
+                                <span class="self-start sm:self-center px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700">
+                                    Jan 2020 – 2023
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Credentialing & Professional Organizations -->
+                    <div>
+                        <h2 class="font-serif text-2xl font-bold text-clinical-navy mb-6 flex items-center">
+                            <i class="fa-solid fa-building-columns text-clinical-sage mr-3"></i>
+                            Credentialing &amp; Professional Bodies
+                        </h2>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                            <div class="bg-clinical-bgOff border border-clinical-border rounded-xl p-5">
+                                <div class="text-clinical-sage font-bold text-xs uppercase tracking-wider mb-1">ANCC</div>
+                                <h3 class="font-serif font-bold text-clinical-navy text-base">American Nurses Credentialing Center</h3>
+                                <p class="text-xs text-clinical-muted mt-2">PMHNP-BC Board Certification Candidate (Anticipated June 2027).</p>
+                            </div>
+
+                            <div class="bg-clinical-bgOff border border-clinical-border rounded-xl p-5">
+                                <div class="text-clinical-sage font-bold text-xs uppercase tracking-wider mb-1">AACN</div>
+                                <h3 class="font-serif font-bold text-clinical-navy text-base">American Association of Critical-Care Nurses</h3>
+                                <p class="text-xs text-clinical-muted mt-2">CCRN Certified Alumni (2020–2023) &amp; Acute Care Nursing.</p>
+                            </div>
+
+                            <div class="bg-clinical-bgOff border border-clinical-border rounded-xl p-5">
+                                <div class="text-clinical-sage font-bold text-xs uppercase tracking-wider mb-1">AHA</div>
+                                <h3 class="font-serif font-bold text-clinical-navy text-base">American Heart Association</h3>
+                                <p class="text-xs text-clinical-muted mt-2">Certified in Basic Life Support (BLS) &amp; ACLS (2018–Present).</p>
+                            </div>
+
+                            <div class="bg-clinical-bgOff border border-clinical-border rounded-xl p-5">
+                                <div class="text-clinical-sage font-bold text-xs uppercase tracking-wider mb-1">MSBN</div>
+                                <h3 class="font-serif font-bold text-clinical-navy text-base">Mississippi Board of Nursing</h3>
+                                <p class="text-xs text-clinical-muted mt-2">Active Compact Registered Nurse License (2018–Present).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+        <!-- =================================================================
+             TAB 6: HONORS AND AWARDS
+        ================================================================== -->
+        <div id="view-honors" class="page-view hidden">
+            <section class="bg-clinical-navy text-white py-12 sm:py-16">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <span class="text-xs font-bold uppercase tracking-widest text-emerald-300">Clinical Recognition</span>
+                    <h1 class="font-serif text-3xl sm:text-4xl font-bold mt-2">Honors and Awards</h1>
+                    <p class="text-slate-200 text-sm sm:text-base max-w-2xl mt-3 leading-relaxed">
+                        Recognition for clinical precision, interdisciplinary teamwork, and patient-centered excellence.
+                    </p>
+                </div>
+            </section>
+
+            <section class="py-12 sm:py-16 bg-white">
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Award 1: June 2025 -->
+                    <div class="bg-clinical-bgOff border border-clinical-border rounded-2xl p-6 sm:p-8 shadow-xs relative overflow-hidden">
+                        <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-trophy text-xl"></i>
+                        </div>
+                        <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-clinical-sageLight text-clinical-sage mb-3">
+                            June 2025
+                        </span>
+                        <h2 class="font-serif text-xl font-bold text-clinical-navy">
+                            Employee of the Quarter
+                        </h2>
+                        <p class="text-sm font-semibold text-clinical-sage mt-1">
+                            VIC the PICC — Memphis, TN
+                        </p>
+                        <p class="text-sm text-clinical-muted mt-3 leading-relaxed">
+                            Recognized for sustained excellence in ultrasound-guided vascular access placement, strict infection-prevention adherence, and collaborative care across multidisciplinary hospital teams.
+                        </p>
+                    </div>
+
+                    <!-- Award 2: June 2024 -->
+                    <div class="bg-clinical-bgOff border border-clinical-border rounded-2xl p-6 sm:p-8 shadow-xs relative overflow-hidden">
+                        <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-award text-xl"></i>
+                        </div>
+                        <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-clinical-sageLight text-clinical-sage mb-3">
+                            June 2024
+                        </span>
+                        <h2 class="font-serif text-xl font-bold text-clinical-navy">
+                            Employee of the Quarter
+                        </h2>
+                        <p class="text-sm font-semibold text-clinical-sage mt-1">
+                            VIC the PICC — Memphis, TN
+                        </p>
+                        <p class="text-sm text-clinical-muted mt-3 leading-relaxed">
+                            Honored for clinical leadership, thorough patient education regarding vascular access devices, and reliability in managing complex clinical consultations.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- =================================================================
+             TAB 7: SERVICE
+        ================================================================== -->
+        <div id="view-service" class="page-view hidden">
+            <section class="bg-clinical-navy text-white py-12 sm:py-16">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <span class="text-xs font-bold uppercase tracking-widest text-emerald-300">Community &amp; Leadership</span>
+                    <h1 class="font-serif text-3xl sm:text-4xl font-bold mt-2">Service</h1>
+                    <p class="text-slate-200 text-sm sm:text-base max-w-2xl mt-3 leading-relaxed">
+                        Dedicated to servant leadership, community engagement, and local and international outreach initiatives.
+                    </p>
+                </div>
+            </section>
+
+            <section class="py-12 sm:py-16 bg-white">
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+                    <div class="bg-clinical-bgOff border border-clinical-border rounded-2xl p-6 sm:p-8 shadow-xs">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-clinical-border">
+                            <div class="flex items-center space-x-3.5">
+                                <div class="w-12 h-12 rounded-xl bg-clinical-sageLight text-clinical-sage flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-hands-helping text-xl"></i>
+                                </div>
+                                <div>
+                                    <h2 class="font-serif text-xl sm:text-2xl font-bold text-clinical-navy">
+                                        Worship Team Lead
+                                    </h2>
+                                    <p class="text-base font-semibold text-clinical-sage">
+                                        Pinelake Church
+                                    </p>
+                                </div>
+                            </div>
+                            <span class="self-start sm:self-center px-3.5 py-1.5 rounded-lg bg-white border border-clinical-border text-xs font-bold text-clinical-navy">
+                                <i class="fa-regular fa-calendar mr-1.5 text-clinical-sage"></i> August 2022 – Present
+                            </span>
+                        </div>
+
+                        <div class="pt-5 space-y-3 text-sm sm:text-base text-clinical-charcoal leading-relaxed">
+                            <p>
+                                • Serve as Worship Team Lead at Pinelake Church, mentoring team members, coordinating weekly services, and fostering an encouraging environment.
+                            </p>
+                            <p>
+                                • Maintain active involvement in both <strong>local and international outreach programs</strong>, supporting community wellness and service initiatives.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- =================================================================
+             TAB 8: CURRICULUM VITAE
+        ================================================================== -->
+        <div id="view-cv" class="page-view hidden">
+            <section class="bg-clinical-navy text-white py-12 sm:py-16 no-print">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <span class="text-xs font-bold uppercase tracking-widest text-emerald-300">Academic &amp; Clinical Record</span>
+                    <h1 class="font-serif text-3xl sm:text-4xl font-bold mt-2">Curriculum Vitae</h1>
+                    <p class="text-slate-200 text-sm sm:text-base max-w-2xl mt-3 leading-relaxed">
+                        Full curriculum vitae available upon request.
+                    </p>
+                </div>
+            </section>
+
+            <section class="py-10 sm:py-14 bg-clinical-bgOff">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div id="printable-cv-section" class="bg-white rounded-2xl border border-clinical-border shadow-md p-10 sm:p-14 text-clinical-charcoal text-center">
+                        <div class="w-16 h-16 rounded-2xl bg-clinical-navy text-white flex items-center justify-center font-serif text-2xl font-bold mx-auto mb-6 shadow-inner">
+                            ZT
+                        </div>
+                        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-clinical-navy tracking-wide mb-2">Curriculum Vitae</h2>
+                        <p class="text-base sm:text-lg text-clinical-charcoal leading-relaxed max-w-md mx-auto">
+                            Available upon request:<br>
+                            <a href="mailto:zthweatt@yahoo.com" class="text-clinical-sage font-semibold hover:underline">zthweatt@yahoo.com</a>
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- =================================================================
+             TAB 9 (UNDER MORE DROPDOWN): SELF EVALUATION
+        ================================================================== -->
+        <div id="view-self-evaluation" class="page-view hidden">
+            <section class="bg-clinical-navy text-white py-12 sm:py-16">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <span class="text-xs font-bold uppercase tracking-widest text-emerald-300">More • Reflective Practice</span>
+                    <h1 class="font-serif text-3xl sm:text-4xl font-bold mt-2">Self Evaluation</h1>
+                    <p class="text-slate-200 text-sm sm:text-base max-w-2xl mt-3 leading-relaxed">
+                        A reflective assessment of clinical strengths, graduate practicum growth, and professional readiness as a Psychiatric-Mental Health Nurse Practitioner candidate.
+                    </p>
+                </div>
+            </section>
+
+            <section class="py-12 sm:py-16 bg-white">
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+                    
+                    <!-- Reflection 1: Strengths -->
+                    <div class="bg-clinical-bgOff border border-clinical-border rounded-2xl p-6 sm:p-8 shadow-xs space-y-3">
+                        <div class="flex items-center space-x-3">
+                            <span class="w-9 h-9 rounded-lg bg-clinical-sage text-white flex items-center justify-center font-bold text-sm">1</span>
+                            <h2 class="font-serif text-xl font-bold text-clinical-navy">Clinical Strengths &amp; Transferable Foundation</h2>
+                        </div>
+                        <p class="text-sm sm:text-base text-clinical-charcoal leading-relaxed">
+                            Over eight years of nursing experience across high-acuity ICU environments and specialized vascular access consultation have equipped me with calm clinical judgment, thorough diagnostic vigilance, and clear communication under pressure. My background managing complex hemodynamic, neurological, and post-surgical patients directly strengthens my ability to evaluate medical-psychiatric overlap, monitor medication safety, and educate patients and families effectively.
+                        </p>
+                    </div>
+
+                    <!-- Reflection 2: Graduate PMHNP Clinical Growth -->
+                    <div class="bg-clinical-bgOff border border-clinical-border rounded-2xl p-6 sm:p-8 shadow-xs space-y-3">
+                        <div class="flex items-center space-x-3">
+                            <span class="w-9 h-9 rounded-lg bg-clinical-navy text-white flex items-center justify-center font-bold text-sm">2</span>
+                            <h2 class="font-serif text-xl font-bold text-clinical-navy">Growth in Psychiatric Assessment &amp; Treatment Planning</h2>
+                        </div>
+                        <p class="text-sm sm:text-base text-clinical-charcoal leading-relaxed">
+                            Completing 360 clinical hours at Right Track Medical Group across adolescent, adult, and geriatric populations has significantly deepened my diagnostic reasoning and therapeutic interviewing skills. Working with individuals navigating ADHD, major depressive disorder, generalized anxiety disorder, schizoaffective disorder, schizophrenia, OCD, and DMDD—as well as participating in Transcranial Magnetic Stimulation (TMS) mapping—has reinforced the value of individualized, multimodal psychiatric treatment plans.
+                        </p>
+                    </div>
+
+                    <!-- Reflection 3: Future Goals -->
+                    <div class="bg-clinical-bgOff border border-clinical-border rounded-2xl p-6 sm:p-8 shadow-xs space-y-3">
+                        <div class="flex items-center space-x-3">
+                            <span class="w-9 h-9 rounded-lg bg-clinical-sage text-white flex items-center justify-center font-bold text-sm">3</span>
+                            <h2 class="font-serif text-xl font-bold text-clinical-navy">Ongoing Development &amp; Post-Graduation Goals (2027)</h2>
+                        </div>
+                        <p class="text-sm sm:text-base text-clinical-charcoal leading-relaxed">
+                            As I progress toward completing my MSN at the University of Mississippi Medical Center in May 2027 and sitting for ANCC PMHNP-BC board certification in June 2027, my focus remains on refining lifespan psychopharmacology expertise, integrating brief psychotherapeutic interventions into medication management visits, and expanding access to high-quality mental health care across Mississippi and surrounding communities.
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- =====================================================================
+         FOOTER
+    ====================================================================== -->
+    <footer class="bg-clinical-bgOff border-t border-clinical-border py-8 no-print">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-clinical-muted">
+            <div class="flex items-center space-x-3">
+                <div class="w-7 h-7 rounded-md bg-clinical-navy text-white flex items-center justify-center font-serif font-bold text-xs">
+                    ZT
+                </div>
+                <div>
+                    <span class="font-semibold text-clinical-navy">Zachary Thweatt, RN, BSN</span> — PMHNP Portfolio
+                </div>
+            </div>
+            <div class="text-center sm:text-right">
+                <p>MSN (UMMC, May 2027) • PMHNP-BC Anticipated June 2027</p>
+                <p class="text-xs text-slate-400 mt-0.5">&copy; <span id="current-year"></span> Zachary Thweatt. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- =====================================================================
+         MODAL: REFERENCE / INQUIRY MODAL
+    ====================================================================== -->
+    <div id="reference-modal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-900/60 backdrop-blur-xs p-4 flex items-center justify-center no-print" role="dialog" aria-modal="true">
+        <div class="max-w-lg w-full bg-white rounded-2xl shadow-2xl border border-clinical-border overflow-hidden">
+            <div class="bg-clinical-navy px-6 py-4 text-white flex items-center justify-between">
+                <h3 class="font-serif font-bold text-lg">Inquiry &amp; Reference Request</h3>
+                <button type="button" onclick="closeReferenceModal()" class="text-white/80 hover:text-white cursor-pointer">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <form onsubmit="handleInquirySubmit(event)" class="p-6 space-y-4">
+                <p class="text-xs text-clinical-muted">
+                    References from UMMC faculty, Right Track Medical Group preceptors, and VIC the PICC leadership are available upon request.
+                </p>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-clinical-navy mb-1">Your Name &amp; Title</label>
+                    <input type="text" id="req-name" required placeholder="e.g., Dr. Jane Smith" class="w-full px-3.5 py-2.5 rounded-lg border border-clinical-border text-sm focus:outline-none focus:border-clinical-sage">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-clinical-navy mb-1">Organization</label>
+                    <input type="text" id="req-org" required placeholder="e.g., Hospital / Clinic Name" class="w-full px-3.5 py-2.5 rounded-lg border border-clinical-border text-sm focus:outline-none focus:border-clinical-sage">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-clinical-navy mb-1">Inquiry Purpose</label>
+                    <select id="req-purpose" class="w-full px-3.5 py-2.5 rounded-lg border border-clinical-border text-sm focus:outline-none focus:border-clinical-sage bg-white">
+                        <option value="PMHNP Post-Graduation Opportunity (2027)">PMHNP Post-Graduation Opportunity (2027)</option>
+                        <option value="Request Clinical References">Request Clinical References</option>
+                        <option value="Clinical Preceptorship / Collaboration">Clinical Preceptorship / Collaboration</option>
+                    </select>
+                </div>
+                <div id="inquiry-feedback" class="hidden p-3.5 rounded-xl bg-clinical-sageLight border border-clinical-sage/30 text-xs text-clinical-navy"></div>
+                <div class="flex items-center justify-end gap-3 pt-2">
+                    <button type="button" onclick="closeReferenceModal()" class="px-4 py-2 rounded-lg text-sm font-medium text-clinical-muted hover:bg-clinical-bgOff cursor-pointer">Cancel</button>
+                    <button type="submit" class="px-5 py-2.5 rounded-lg bg-clinical-sage hover:bg-emerald-700 text-white text-sm font-semibold shadow-sm transition-colors cursor-pointer">Copy Inquiry</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div id="toast-banner" class="fixed bottom-5 right-5 z-50 hidden max-w-sm bg-clinical-navy text-white px-4 py-3 rounded-xl shadow-xl border border-white/15 flex items-center space-x-3 text-xs sm:text-sm no-print">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-base"></i>
+        <span id="toast-message">Action completed.</span>
+    </div>
+
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Multi-Tab Page Navigation (Google Sites Style)
+        function navigateToTab(tabId) {
+            // Hide all page views
+            document.querySelectorAll('.page-view').forEach(view => {
+                view.classList.add('hidden');
+            });
+
+            // Show target view
+            const targetView = document.getElementById('view-' + tabId);
+            if (targetView) {
+                targetView.classList.remove('hidden');
+            }
+
+            // Update desktop active nav styling
+            document.querySelectorAll('.nav-item').forEach(btn => {
+                btn.classList.remove('nav-link-active');
+                if (btn.getAttribute('data-tab') === tabId) {
+                    btn.classList.add('nav-link-active');
+                }
+            });
+
+            // Update mobile active nav styling
+            document.querySelectorAll('.mobile-nav-item').forEach(btn => {
+                btn.classList.remove('bg-clinical-sageLight', 'text-clinical-navy', 'font-bold');
+                if (btn.getAttribute('data-tab') === tabId) {
+                    btn.classList.add('bg-clinical-sageLight', 'text-clinical-navy', 'font-bold');
+                }
+            });
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // More Dropdown Controls
+        const moreMenu = document.getElementById('more-dropdown-menu');
+        const moreChevron = document.getElementById('more-chevron');
+
+        function toggleMoreDropdown() {
+            moreMenu.classList.toggle('hidden');
+            moreChevron.classList.toggle('rotate-180');
+        }
+
+        function closeMoreDropdown() {
+            moreMenu.classList.add('hidden');
+            moreChevron.classList.remove('rotate-180');
+        }
+
+        document.addEventListener('click', (e) => {
+            const wrapper = document.getElementById('more-dropdown-wrapper');
+            if (wrapper && !wrapper.contains(e.target)) {
+                closeMoreDropdown();
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('hidden');
+        }
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+        // Clinical Rotation Filter
+        function filterRotations(category) {
+            document.querySelectorAll('.rotation-tab').forEach(t => {
+                t.classList.remove('bg-clinical-navy', 'text-white');
+                t.classList.add('text-clinical-muted');
+            });
+            document.getElementById('tab-' + category).classList.add('bg-clinical-navy', 'text-white');
+            document.getElementById('tab-' + category).classList.remove('text-clinical-muted');
+            document.querySelectorAll('.rotation-card').forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) card.classList.remove('hidden');
+                else card.classList.add('hidden');
+            });
+        }
+
+        function showConditionNote(title, desc) {
+            document.getElementById('condition-note-title').innerHTML = `<i class="fa-solid fa-circle-info mr-1"></i> Clinical Focus: ${title}`;
+            document.getElementById('condition-note-desc').textContent = desc;
+        }
+
+        function openReferenceModal() {
+            document.getElementById('reference-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeReferenceModal() {
+            document.getElementById('reference-modal').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeReferenceModal();
+                closeMoreDropdown();
+            }
+        });
+
+        function handleInquirySubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('req-name').value.trim();
+            const org = document.getElementById('req-org').value.trim();
+            const purpose = document.getElementById('req-purpose').value;
+            const text = `PMHNP Inquiry for Zachary Thweatt, RN, BSN\nFrom: ${name} (${org})\nPurpose: ${purpose}`;
+            copyTextToClipboard(text);
+            const feedback = document.getElementById('inquiry-feedback');
+            feedback.classList.remove('hidden');
+            feedback.innerHTML = `<strong>Inquiry Copied!</strong> Ready to paste into your email.`;
+            showToast('Inquiry copied to clipboard!');
+        }
+
+        function copyPortfolioSummary() {
+            const text = "ZACHARY THWEATT, RN, BSN — PMHNP Student\nSummary: 8+ years ICU & vascular access. MSN UMMC (May 2027), PMHNP-BC (June 2027).\nClinical: Right Track Medical Group (360 hrs: ADHD, MDD, GAD, Schizoaffective, Schizophrenia, OCD, DMDD, TMS mapping) & Internal Medicine Associates of Oxford.\nWork History: Vascular Access Consultant at VIC the PICC (May 2020-Present, 2x Employee of the Quarter) & ICU RN at Baptist Memorial Hospital - Oxford (May 2018-May 2020).";
+            copyTextToClipboard(text);
+            const btnText = document.getElementById('copy-btn-text');
+            if (btnText) btnText.textContent = "Summary Copied!";
+            showToast('Resume summary copied!');
+            setTimeout(() => { if (btnText) btnText.textContent = "Copy Summary"; }, 3000);
+        }
+
+        function copyTextToClipboard(text) {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.left = '-9999px';
+            document.body.appendChild(ta);
+            ta.focus();
+            ta.select();
+            try { document.execCommand('copy'); } catch(err) {}
+            document.body.removeChild(ta);
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast-banner');
+            document.getElementById('toast-message').textContent = msg;
+            toast.classList.remove('hidden');
+            setTimeout(() => { toast.classList.add('hidden'); }, 3500);
+        }
+    </script>
+</body>
+</html>
